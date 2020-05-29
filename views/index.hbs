@@ -1,16 +1,13 @@
 <p>Welcome to Hackathon Team 2's App!</p>
 {{#each posts}}
 <div class="container">
-  <div class="row">
-    <div class="col-sm">
-      One of three columns
-    </div>
-    <div class="col-sm">
-      One of three columns
-    </div>
-    <div class="col-sm">
-      One of three columns
-    </div>
-  </div>
+  <p>{{creator.name}}</p>
+      <p>{{description}}</p>
+      <img src="{{pictureUrl}}" alt="user post's image">
+      <p>{{category}}</p>
+      <textarea class='input' id="comment" name="comment" placeholder="Reach out to this user and leave your comment" maxlength="200"></textarea>
+      <button>Leave a Comment</button>
+
+
 </div>
 {{/each}}
