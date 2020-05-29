@@ -33,6 +33,11 @@ const postSchema = new mongoose.Schema(
       maxlength: 200,
       required: true,
     },
+    
+    category : {
+      type: String,
+      enum: ["sports", "art", "games"]
+    },
     like_count: {
       type: Number,
       default: 0,
