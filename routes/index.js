@@ -19,7 +19,7 @@ cloudinary.config({
 
 const storage = multerStorageCloudinary({
   cloudinary,
-  folder: "HACKATHON-TEAM-2"
+  folder: "HACKATHON"
 });
 
 const uploader = multer({ storage });
@@ -27,15 +27,12 @@ const uploader = multer({ storage });
 
 const indexRouter = new Router();
 
-//get post from database, display by most recent
+//get posts from database, display by most recent
 indexRouter.get("/", (req, res, next) => {
   Post.find()
     .sort({ createdDate: -1 })
-    // .limit(2)
-    // .skip(1)
     .populate("creator")
     .then((posts) => {
-      //console.log(posts);
       res.render("index", { posts });
     })
     .catch((error) => {
