@@ -11,7 +11,7 @@
     <!--Navbar-->
       <nav class="container navbar navbar-light">
         <a class="navbar-brand" href="/">
-          <img class="img-logo" src="/images/VARITY.png" />
+          <img class="img-logo" src="/images/VARITY.png" alt="logo"/>
         </a>
         <!-- Search form 
         <div class="active-cyan-4 mb-4">
@@ -21,7 +21,7 @@
           {{#if user}}
             <a href="/" style="margin-right: 20px;">Home</a>
             <a href="/post/create" style="margin-right: 20px;">Add Post</a>
-            <img src="{{user.picture}}" style="border-radius: 50%; width: 30px; height: 30px">
+            <img src="{{user.picture}}" style="border-radius: 50%; width: 30px; height: 30px" alt="user picture">
             {{!-- <a href="/profile/{{ user._id }}">Profile</a> --}}
             <form class="form-check form-check-inline" action="/authentication/sign-out" method="POST">
               <button>Sign Out</button>
