@@ -1,13 +1,12 @@
-<p>Welcome to Hackathon Team 2's App!</p>
+<h2>Recent Posts</h2>
 {{#each posts}}
-<div class="container">
-  <p>{{creator.name}}</p>
-      <p>{{description}}</p>
-      <img src="{{pictureUrl}}" alt="user post's image">
-      <p>{{category}}</p>
-      <textarea class='input' id="comment" name="comment" placeholder="Reach out to this user and leave your comment" maxlength="200"></textarea>
-      <button>Leave a Comment</button>
-
-
-</div>
+  <h5 class="mt-0 mb-1">Created by {{creator.name}}</h5>
+  <img class="mr-3" src="{{pictureUrl}}" alt="Generic placeholder image">
+  <div class="media-body">
+    <p>Category: {{category}}</p>
+    <p>Description: {{description}}
+  </div>
+  <textarea class='input form-control mt-4' id="comment" name="comment" placeholder="Reach out to this user and leave your comment" maxlength="200"></textarea>
+  <button type="button" class="btn btn-primary mb-5">Leave a Comment</button>
+  <hr>
 {{/each}}

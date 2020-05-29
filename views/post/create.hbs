@@ -1,29 +1,32 @@
-<div class="">
-    <h2>Create your post</h2>
-<form action="" method="POST" enctype="multipart/form-data">
 
-  <label class='label' for="post-name">Title: </label>
-  <input class='input' type="text" id="post-name" name="name" required minlength="1" maxlength="20" placeholder="Give this post a name" />
-  
-  <label class='label' for="post-description">Description: </label>
-  <textarea class='input' id="post-description" name="description" required placeholder="Explain the talent or ability you show in this post" maxlength="200"></textarea>
+<h2>Create your post</h2>
+<form class="form-group" action="" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <label class='label' for="post-name">Title: </label>
+    <input class='input form-control' type="text" id="post-name" name="name" required minlength="1" maxlength="20" placeholder="Give this post a name" />
+  </div>
 
-  <label class='label'for="media">Upload your Photo or Video</label>
-  <input class='input' type="file" id="media" name="media" required/>
+  <div class="form-group">
+    <label class='label' for="post-description">Description: </label>
+    <textarea class='input form-control' id="post-description" name="description" required placeholder="Explain the talent or ability you show in this post" maxlength="200"></textarea>
+  </div>
 
-<label class='label' for="input-type">What's the kind of talent you're showing?</label>
- <select class='input' name="type" id="type-input" >
-    <option class="select" value="dancing">Dancing</option>
-    <option class="select" value="singing">Singing</option>
-    <option class="select" value="crafts">Crafts</option>
-    <option class="select" value="sports">Sports</option>
-    <option class="select" value="public-speaking">Public Speaking</option>
-    <option class="select" value="cooking">Cooking</option>
-     <option class="select" value="art">Art</option>
+  <div class="form-group">
+    <label class='label'for="media">Upload your Photo or Video</label>
+    <input class='input form-control' type="file" id="media" name="media" required/>
+  </div>
 
-  </select>
-
-  <button class='post-comment'>Publish</button>
-
+  <div class="form-group">
+    <label class='label' for="input-type">What's the kind of talent you're showing?</label>
+    <select class="input form-control" name="type" id="type-input" >
+      <option class="select" value="dancing">Dancing</option>
+      <option class="select" value="singing">Singing</option>
+      <option class="select" value="crafts">Crafts</option>
+      <option class="select" value="sports">Sports</option>
+      <option class="select" value="public-speaking">Public Speaking</option>
+      <option class="select" value="cooking">Cooking</option>
+      <option class="select" value="art">Art</option>
+    </select>
+  </div>
+  <button class='btn btn-primary'>Publish</button>
 </form>
-</div>
