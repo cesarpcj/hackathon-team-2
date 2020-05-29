@@ -1,0 +1,32 @@
+<div class="">
+<form action="" method="POST">
+
+<h2>Create your post</h2>
+
+  <label class='label' for="post-name">Title: </label>
+  <input class='input' type="text" id="post-name" name="name" required minlength="1" maxlength="20" placeholder="Give this post a name" />
+  
+  <label class='label' for="post-description">Description: </label>
+  <textarea class='input' id="post-description" name="description" required placeholder="Explain the talent or ability you show in this post" maxlength="200"></textarea>
+
+  <label class='label'for="">Upload your Photo or Video</label>
+  <img src="{{image}}" alt="user's image">
+  <input class='input' type="" id="pictureUrl" name="pictureUrl" required/>
+
+<video src="{{video}}" width="" height="" controls>Video not supported</video>
+
+<label class='label' for="input-type">What's the kind of talent you're showing?</label>
+ <select class='input' name="type" id="type-input" >
+    <option class="select" value="dancing">Dancing</option>
+    <option class="select" value="singing">Singing"</option>
+    <option class="select" value="crafts">Crafts"</option>
+    <option class="select" value="Sports">Sports"</option>
+    <option class="select" value="public-speaking">Public Speaking"</option>
+    <option class="select" value="Cooking">Cooking"</option>
+
+  </select>
+
+  <button class='post-comment'>Publish</button>
+
+</form>
+</div>
