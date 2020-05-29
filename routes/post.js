@@ -55,7 +55,15 @@ router.post("/post/create", (req, res, next) => {
     .catch((err) => {});
 });
 
-//to do
-router.get("/post/channel", (req, res, next) => {});
+router.get("/post/channel/:category", (req, res, next) => {
+  const category = req.params.category;
+  Post.find({ category })
+    .then((posts) => {
+      res.render("/", posts);
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
 
 module.exports = router;
