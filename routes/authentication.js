@@ -6,10 +6,9 @@ const User = require("./../models/user");
 const routeGuard = require("./../middleware/route-guard");
 const router = new Router();
 
-/*
 const multer = require("multer");
-const cloudinary = require("cloudinary");
-const multerStorageCloudinary = require("multer-storage-cloudinary");
+const cloudinary = require("cloudinary").v2;
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -17,20 +16,23 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-const storage = multerStorageCloudinary({
+const storage = new CloudinaryStorage({
   cloudinary,
-  folder: "HACKATHON-TEAM-2"
+  params: {
+    folder: "HACKATHON"
+  }
 });
 
-const uploader = multer({ storage });*/
+const uploader = multer({ storage });
 
 router.get("/sign-up", (req, res, next) => {
   res.render("authentication/sign-up");
 });
 
-/*router.post("/sign-up", uploader.single("picture"), (req, res, next) => {
+router.post("/sign-up", uploader.single("picture"), (req, res, next) => {
+  console.log("im being called");
   //PASSWORD HASH
-  const picture = req.file.url;
+  const picture = req.file.path;
   const { name, email, password } = req.body;
   const characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
   let token = "";
@@ -44,7 +46,6 @@ router.get("/sign-up", (req, res, next) => {
         name,
         email,
         passwordHash: hash,
-        confirmationCode: token,
         picture
       });
     })
@@ -53,9 +54,10 @@ router.get("/sign-up", (req, res, next) => {
       res.redirect("/");
     })
     .catch((error) => {
+      console.log(error);
       next(error);
     });
-});*/
+});
 
 router.get("/sign-in", (req, res, next) => {
   res.render("authentication/sign-in");

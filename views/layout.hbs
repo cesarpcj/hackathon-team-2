@@ -8,18 +8,31 @@
     <link rel="stylesheet" href="/styles/style.css" />
   </head>
   <body>
-    <nav>
-      <a href="/">Home</a>
-      {{#if user}}
-        <!-- <a href="/">{{user.name}}'s Profile</a> -->
-        <form action="/authentication/sign-out" method="POST">
-          <button>Sign Out</button>
-        </form>
-        {{else}}
-        <a href="/authentication/sign-in">Sign In</a>
-        <a href="/authentication/sign-up">Sign Up</a>
-      {{/if}}
-    </nav>
+    <!--Navbar-->
+      <nav class="container navbar navbar-light">
+        <a class="navbar-brand" href="/">
+          <img class="img-logo" src="/images/art-geo-logo.png" />
+        </a>
+        <!-- Actual search box -->
+            <div class="form-group has-search">
+              <span class="fa fa-search form-control-feedback"></span>
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+        <div>
+          {{#if user}}
+            <a href="/places/map" style="margin-right: 20px;">Add Post</a>
+            <img src="{{user.picture}}" style="border-radius: 50%; width: 30px; height: 30px">
+            <a href="/profile/{{ user._id }}">Profile</a>
+            <form class="form-check form-check-inline" action="/authentication/sign-out" method="POST">
+              <button>Sign Out</button>
+            </form>
+            {{else}}
+            <a href="/places/map" style="margin-right: 20px;">Add Post</a>
+            <a href="/authentication/sign-in">Sign In</a>
+            <a href="/authentication/sign-up">Sign Up</a>
+          {{/if}}
+        </div>
+      </nav>
     {{{body}}}
     <script src="/scripts/script.js"></script>
   </body>
