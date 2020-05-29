@@ -1,15 +1,50 @@
-'use strict';
+"use strict";
 
-const { Router } = require('express');
-const router = new Router();
-const routeGuard = require('./../middleware/route-guard');
+const { Router } = require("express");
+const routeGuard = require("./../middleware/route-guard");
 
-router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Hello World!' });
+//require post model
+const Post = require("./../models/post");
+
+/*//require cloudinary packages-------------
+const multer = require("multer");
+const cloudinary = require("cloudinary");
+const multerStorageCloudinary = require("multer-storage-cloudinary");
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-router.get('/private', routeGuard, (req, res, next) => {
-  res.render('private');
+const storage = multerStorageCloudinary({
+  cloudinary,
+  folder: "HACKATHON-TEAM-2"
 });
 
-module.exports = router;
+const uploader = multer({ storage });
+//require cloudinary packages-------------*/
+
+const indexRouter = new Router();
+
+//get post from database, display by most recent
+indexRouter.get("/", (req, res, next) => {
+  Post.find()
+    .sort({ createdDate: -1 })
+    // .limit(2)
+    // .skip(1)
+    .populate("creator")
+    .then((posts) => {
+      //console.log(posts);
+      res.render("index", { posts });
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+indexRouter.get("/private", routeGuard, (req, res, next) => {
+  res.render("private");
+});
+
+module.exports = indexRouter;
