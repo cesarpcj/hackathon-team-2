@@ -37,7 +37,7 @@ router.post('/post/:postId/delete', (req, res, next) => {
   const postId = req.params.postId;
   Post.findByIdAndRemove(postId)
     .then((post) => {
-      res.render('/');
+      res.redirect('/');
     })
     .catch((err) => {
       next(err);
@@ -82,7 +82,7 @@ router.get('/post/:postId', (req, res, next) => {
   Post.findById(postId)
     .populate('creator')
     .then((post) => {
-      res.render('/single', { post });
+      res.render('single', { post });
     })
     .catch((err) => {
       next(err);
